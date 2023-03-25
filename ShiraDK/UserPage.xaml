@@ -1,0 +1,47 @@
+﻿<Page x:Class="ShiraDK.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShiraDK"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserPage"
+      Loaded="Page_Loaded">
+
+
+    <Grid Background="AliceBlue">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Image Height="50" Width="50" Source="Resursed/19.png"></Image>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5" FontSize="20">ШИРИНСКИЙ ДОМ КУЛЬТУРЫ</Label>
+                <Label VerticalAlignment="Center"  Margin="5" FontWeight="Bold" FontSize="15" FontStyle="Italic">Список пользователей</Label>
+            </StackPanel>
+
+            <DataGrid Margin="15" Height="280" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                   
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding Roles.Name}" Width="2*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="3*"></DataGridTextColumn>
+                 </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Margin="35,0,35,0" Orientation="Horizontal">
+                <Button Padding="10,0,10,0" Margin="3,3,10,3" x:Name="backBtn" Click="backBtn_Click">Назад</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="deletBtn" Click="deletBtn_Click">Удалить</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="addBtn" Click="addBtn_Click">Добавить новую запись</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="editBtn" Click="editBtn_Click">Редактировать</Button>
+            </StackPanel>
+            <StackPanel Margin="40,5,35,0" Orientation="Horizontal">
+                <TextBlock  VerticalAlignment="Center">Имя:</TextBlock>
+                <TextBox Margin="5" Width="100" x:Name="firstNameBox"></TextBox>
+                <TextBlock  VerticalAlignment="Center">Фамилия:</TextBlock>
+                <TextBox Margin="5" Width="100" x:Name="lastNameBox"></TextBox>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="searchBtn" Click="searchBtn_Click">Поиск</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="clearBtn" Click="clearBtn_Click">Обновить</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

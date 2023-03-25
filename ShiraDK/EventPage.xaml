@@ -1,0 +1,58 @@
+﻿<Page x:Class="ShiraDK.EventPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShiraDK"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EventPage"
+      Loaded="Page_Loaded">
+    <Grid Background="AliceBlue">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Image Height="50" Width="50" Source="Resursed/19.png"></Image>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5" FontSize="20">ШИРИНСКИЙ ДОМ КУЛЬТУРЫ</Label>
+                <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Margin="5" FontStyle="Italic">Мероприятия</Label>
+            </StackPanel>
+
+            <DataGrid Margin="15" Height="260" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                   
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Продолжительность (мин)" Binding="{Binding Duration}" Width="2*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="1.5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Организатор" Binding="{Binding Organizers.Name}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Кол-во мест всего" Binding="{Binding NumberOfSeats}" Width="4*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Осталось" Binding="{Binding AvailableOfSeats}" Width="2*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Margin="35,0,35,0" Orientation="Horizontal" x:Name="CRUDpanel">
+                <Button Padding="10,0,10,0" Margin="3,3,10,3" x:Name="backBtn" Click="backBtn_Click">Назад</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="deletBtn" Click="deletBtn_Click">Удалить</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="addBtn" Click="addBtn_Click">Добавить новую запись</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="editBtn" Click="editBtn_Click">Редактировать</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="editItemForEventBtn" Click="editItemForEventBtn_Click">Редактировать инвентарь</Button>
+            </StackPanel>
+            <StackPanel Margin="40,5,35,0" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center">Организация: </TextBlock>
+                <ComboBox x:Name="orginazerCbox" Width="140" Margin="10,0,10,0"       
+                                        ItemsSource="{Binding Organizers}"
+                                      DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Organizers.ID}"></ComboBox>
+                <TextBlock VerticalAlignment="Center">В промежутке от:</TextBlock>
+                <DatePicker Margin="5,0,10,0" x:Name="startDatePicer"></DatePicker>
+                <TextBlock VerticalAlignment="Center">до:</TextBlock>
+                <DatePicker Margin="5,0,10,0" x:Name="endDatePicer"></DatePicker>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="searchBtn" Click="searchBtn_Click">Поиск</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="cleanBtn" Click="cleanBtn_Click">Обновить</Button>
+            </StackPanel>
+            <StackPanel Margin="40,5,35,0" Orientation="Horizontal">
+                <TextBlock  VerticalAlignment="Center">Название мероприятия:</TextBlock>
+                <TextBox Margin="5" Width="200" x:Name="eventNameBox"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
