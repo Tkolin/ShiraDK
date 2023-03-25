@@ -119,7 +119,10 @@ namespace ShiraDK
 
         private void editItemForEventBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGrid.SelectedItem == null)
+                return;
 
+            NavigationService.Navigate(new ItemForEventPage((Events)dataGrid.SelectedValue));
         }
     }
 }

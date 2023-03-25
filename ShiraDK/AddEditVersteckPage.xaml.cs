@@ -70,6 +70,7 @@ namespace ShiraDK
                 _item.Height = Convert.ToDouble(yValueTBox.Text);
                 _item.Length = Convert.ToDouble(zValueTBox.Text);
                 _item.Description = descriptionTBox.Text;
+                _item.Count = Convert.ToInt32(_item.Count)+ Convert.ToInt32(countTBox.Text);
 
             }
             catch (Exception ex)

@@ -21,12 +21,12 @@
                     <TextBlock Margin="5,0,0,0">ID:</TextBlock>
                     <TextBox Margin="0,0,0,5" x:Name="eventIdTBox" IsEnabled="False"></TextBox>
                     <TextBlock Margin="5,0,0,0">Название:</TextBlock>
-                    <TextBox Margin="0,0,0,5" x:Name="eventNameTBox"></TextBox>
+                    <TextBox Margin="0,0,0,5" x:Name="eventNameTBox"  IsEnabled="False"/>
                     <DataGrid SelectionChanged="dataGridEvents_SelectionChanged"  Width="250" Height="200" x:Name="dataGridEvents" AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
 
-                            <DataGridTextColumn Header="Название" Binding="{Binding PurchaseDate}" Width="1.2*"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Кол-во" Binding="{Binding Users.FirstName}" Width="1*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Items.Name}" Width="1.2*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}" Width="1*"></DataGridTextColumn>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -41,8 +41,8 @@
                     <TextBlock Margin="5,0,0,0">Описание:</TextBlock>
                     <TextBox Margin="0,0,0,5" x:Name="descriptionTBox" IsEnabled="False"></TextBox>
                     <TextBlock HorizontalAlignment="Center">Изображение</TextBlock>
-                    <Image  Height="100" Width="150" Source="{Binding _image}" x:Name="imageItemImg"></Image>
-                    <TextBlock HorizontalAlignment="Center">Кол-во:</TextBlock>
+                    <Image  Height="60" Width="60" Source="{Binding _image}" x:Name="imageItemImg"></Image>
+                    <TextBlock HorizontalAlignment="Center" x:Name="countTBlock">Кол-во (доступно ):</TextBlock>
                     <TextBox x:Name="countItems" Width="100" />
                     <Button Margin="4,0,4,4" Width ="150" x:Name="addItemForEvent" Click="addItemForEvent_Click" Content="Добавить"/>
                     <Button Margin="4" Width ="150" Click="delItemForEvent_Click" x:Name="delItemForEvent" Content="Убрать"/>
@@ -53,10 +53,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
                     <Label   HorizontalContentAlignment="Center" FontWeight="Bold">Склад</Label>
-                    <DataGrid  Width="250" Height="252" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" SelectionChanged="dataGrid_SelectionChanged">
+                    <DataGrid  Width="250" Height="280" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" SelectionChanged="dataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding PurchaseDate}" Width="1.2*"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Кол-во" Binding="{Binding Users.FirstName}" Width="1*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="1.2*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="1*"></DataGridTextColumn>
                         </DataGrid.Columns>
 
                     </DataGrid>
