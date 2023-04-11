@@ -44,13 +44,14 @@ namespace ShiraDK
 
             WareHouse ClientForRemoving = dataGrid.SelectedItem as WareHouse;
 
-            if (MessageBox.Show($"Вы уверены?", "Внимание",
+            if (MessageBox.Show($"Не рекомендуем удолять старые записи, это может повлечь ошибку с данными. \nВы уверены?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
                     Items items = ClientForRemoving.Items;
-                    items.Count -= ClientForRemoving.Quantity;
+                        items.Count -= ClientForRemoving.Quantity;
+
                     DBEntities.GetContext().WareHouse.Remove(ClientForRemoving);
                     DBEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены! ");

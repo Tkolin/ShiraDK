@@ -17,8 +17,8 @@
 
             <DataGrid Margin="15" Height="251" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                  
-                    <DataGridTextColumn Header="Дата продажи" Binding="{Binding PurchaseDate}" Width="1.2*"></DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Дата продажи" Binding="{Binding PurchaseDate, StringFormat={}{0:dd.MM.yyyy}}" Width="1.2*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Продавец" Binding="{Binding Users.FirstName}" Width="1*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Покупатель" Binding="{Binding Users1.FirstName}" Width="2*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Мероприятие" Binding="{Binding Events.Name}" Width="2*"></DataGridTextColumn>

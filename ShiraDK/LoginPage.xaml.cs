@@ -29,16 +29,23 @@ namespace ShiraDK
 
         private void nextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (loginSearch() != -1)
+            switch (loginSearch())
             {
-                if (loginSearch() == 2)
+                case -1:
+                    MessageBox.Show("Ошибка входа");
+                    break;
+                case 2:
                     NavigationService.Navigate(new EventPage(2));
-                if(loginSearch() == 3)
+                    break;
+                case 3:
                     NavigationService.Navigate(new TicketPage(3));
+                    break;
+                default:
                     NavigationService.Navigate(new MenyPage(loginSearch()));
+                    break;
             }
-            else
-                MessageBox.Show("Ошибка входа");
+
+                
         }
         private void nextGostBtn_Click(object sender, RoutedEventArgs e)
         {

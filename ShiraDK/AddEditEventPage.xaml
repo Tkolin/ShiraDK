@@ -37,10 +37,11 @@
                              HorizontalAlignment="Left" 
                              PreviewTextInput="priceTBox_PreviewTextInput"></TextBox>
                     <TextBlock Margin="5,0,0,0"
-                               >Кол-во мест:</TextBlock>
+                               >Кол-во мест (55 максимум):</TextBlock>
                     <TextBox Margin="3" Width="100" x:Name="countTBox"
                              HorizontalAlignment="Left" 
-                             PreviewTextInput="countTBox_PreviewTextInput"></TextBox>
+                             PreviewTextInput="countTBox_PreviewTextInput"
+                             TextChanged="countTBox_TextChanged"/>
 
 
                 </StackPanel>

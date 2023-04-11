@@ -156,17 +156,8 @@ namespace ShiraDK
                 durationTBox.Text = _event.Duration.ToString();
                 priceTBox.Text = _event.Price.ToString();
 
-                orginazerIdCBox.SelectedItem = _event.Organizers;
-
-                
+                orginazerIdCBox.SelectedItem = _event.Organizers;                
             }
-
-
-
-
-
-
-
         }
 
         private void orginazerIdCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -232,10 +223,25 @@ namespace ShiraDK
 
         private void countTBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            bool approvedDecimalPoint = false;
 
-            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+            if (!Char.IsDigit(e.Text, 0)) // Проверяем, является ли введенный символ цифрой
+            {
                 e.Handled = true;
+                return;
+            }
+        }
+
+        private void countTBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (countTBox.Text != "")
+            {
+                int value = int.Parse(countTBox.Text);
+                if (value > 55)
+                {
+                    countTBox.Text = "55";
+                    countTBox.SelectionStart = countTBox.Text.Length;
+                }
+            }
         }
     }
 }

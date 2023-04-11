@@ -13,7 +13,7 @@
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Image Height="50" Width="50" Source="Resursed/19.png"></Image>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5" FontSize="20">ШИРИНСКИЙ ДОМ КУЛЬТУРЫ</Label>
-                <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Margin="5" FontStyle="Italic">Учёт склада</Label>
+                <Label VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Margin="5" FontStyle="Italic">Учёт инвентаря</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
@@ -29,6 +29,7 @@
                                       SelectedItem="{Binding Users.ID}">
                         
                     </ComboBox>
+                    <CheckBox x:Name="minusCBox" Content="Списание"/>
                     <TextBlock Margin="5,0,0,0">Количество:</TextBlock>
                     <TextBox Margin="0,0,0,5" Width="80" HorizontalAlignment="Left" x:Name="countTBox" PreviewTextInput="countTBox_PreviewTextInput"></TextBox>
 
@@ -36,7 +37,14 @@
                 <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" Margin="10">
                     <Label Width="300" HorizontalContentAlignment="Center" FontWeight="Bold">Информация о предмете</Label>
                     <TextBlock Margin="5,0,0,0">ID:</TextBlock>
-                    <TextBox Margin="0,0,0,5" x:Name="itemIdTBox" IsEnabled="False"></TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox Margin="0,0,0,5" x:Name="itemIdCBox" IsEnabled="False" Width="210" SelectionChanged="itemIdCBox_SelectionChanged"
+                                  ItemsSource="{Binding Items}"
+                                      DisplayMemberPath="ID"
+                                      SelectedItem="{Binding Items}"/>
+                        <Button Content="Добавить новый предмет" x:Name="addNewItemBtn" Click="addNewItemBtn_Click" Margin="4" IsEnabled="False"/>
+                    </StackPanel>
+   
                     <TextBlock Margin="5,0,0,0">Название:</TextBlock>
                     <TextBox Margin="0,0,0,5" x:Name="itemNameTBox"></TextBox>
                     <StackPanel Orientation="Horizontal">
@@ -58,8 +66,13 @@
                             <Button Padding="5,0,5,0" Margin="5" x:Name="deletImageBtn" Click="deletImageBtn_Click">Удалить</Button>
                         </StackPanel>
                     </StackPanel>
-                    <TextBlock Margin="5,0,0,0">Описание:</TextBlock>
-                    <TextBox Margin="0,0,0,5" x:Name="descriptionTBox"></TextBox>
+              
+                        <TextBlock Margin="5,0,0,0">Описание:</TextBlock>
+                    
+                        <TextBox Margin="0,0,0,5" x:Name="descriptionTBox"/>
+                    <Button Content="Сохранить изменения" x:Name="saveInvetariumEditBtn" Click="saveInvetariumEditBtn_Click" Width="150"/>
+
+
 
                 </StackPanel>
 
