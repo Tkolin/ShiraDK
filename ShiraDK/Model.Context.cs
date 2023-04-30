@@ -16,7 +16,7 @@ namespace ShiraDK
     public partial class DBEntities : DbContext
     {
         public DBEntities()
-            : base("name=BDEntities")
+            : base("name=DBEntities")
         {
         }
     
@@ -37,7 +37,6 @@ namespace ShiraDK
         public virtual DbSet<ItemsForEvents> ItemsForEvents { get; set; }
         public virtual DbSet<Organizers> Organizers { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<WareHouse> WareHouse { get; set; }
     }

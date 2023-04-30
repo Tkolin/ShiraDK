@@ -16,8 +16,7 @@ namespace ShiraDK
     {
         public int Number { get; set; }
         public int ItemID { get; set; }
-
-        public System.DateTime DateOfReceipt { get ; set; }
+        public System.DateTime DateOfReceipt { get; set; }
         public Nullable<int> Quantity { get; set; }
         public int UserID { get; set; }
     

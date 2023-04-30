@@ -4,25 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dc12e112c12e4c4d97633ecc0033f1a9" Name="Diagram1" ZoomLevel="81">
-        <EntityTypeShape EntityType="dimovBDModel.BuyingTickets" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.Events" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.Items" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.ItemsForEvents" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.Organizers" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.Roles" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.Users" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dimovBDModel.WareHouse" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
-        <AssociationConnector Association="dimovBDModel.FK_BuyingTickets_Events" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_BuyingTickets_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_BuyingTickets_Users1" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_Events_Organizers" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_ItemsForEvents_Events" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_ItemsForEvents_Items" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_WareHouse_Items" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_Users_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="dimovBDModel.FK_WareHouse_Users" ManuallyRouted="false" />
+      <Diagram DiagramId="ec5cb2f2a0d24d36a161cfd1b563e72c" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.BuyingTickets" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Events" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Items" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ItemsForEvents" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Organizers" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Roles" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Users" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.WareHouse" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_BuyingTickets_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_BuyingTickets_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_BuyingTickets_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Events_Organizers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_ItemsForEvents_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_ItemsForEvents_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_WareHouse_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_WareHouse_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

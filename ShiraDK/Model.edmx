@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище dimovBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BuyingTickets">
           <Key>
             <PropertyRef Name="Number" />
@@ -67,16 +67,6 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -207,14 +197,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище dimovBDModelContainer">
+        <EntityContainer Name="Хранилище DBModelContainer">
           <EntitySet Name="BuyingTickets" EntityType="Self.BuyingTickets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemsForEvents" EntityType="Self.ItemsForEvents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Organizers" EntityType="Self.Organizers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WareHouse" EntityType="Self.WareHouse" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BuyingTickets_Events" Association="Self.FK_BuyingTickets_Events">
@@ -254,10 +243,11 @@
             <End Role="WareHouse" EntitySet="WareHouse" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="dimovBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BuyingTickets">
           <Key>
             <PropertyRef Name="Number" />
@@ -301,9 +291,9 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Weight" Type="Double" />
+          <Property Name="Count" Type="Int32" />
           <NavigationProperty Name="ItemsForEvents" Relationship="Self.FK_ItemsForEvents_Items" FromRole="Items" ToRole="ItemsForEvents" />
           <NavigationProperty Name="WareHouse" Relationship="Self.FK_WareHouse_Items" FromRole="Items" ToRole="WareHouse" />
-          <Property Name="Count" Type="Int32" />
         </EntityType>
         <EntityType Name="ItemsForEvents">
           <Key>
@@ -332,16 +322,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -478,14 +458,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BuyingTickets" EntityType="Self.BuyingTickets" />
           <EntitySet Name="Events" EntityType="Self.Events" />
           <EntitySet Name="Items" EntityType="Self.Items" />
           <EntitySet Name="ItemsForEvents" EntityType="Self.ItemsForEvents" />
           <EntitySet Name="Organizers" EntityType="Self.Organizers" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="WareHouse" EntityType="Self.WareHouse" />
           <AssociationSet Name="FK_BuyingTickets_Events" Association="Self.FK_BuyingTickets_Events">
@@ -530,9 +509,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище dimovBDModelContainer" CdmEntityContainer="BDEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
           <EntitySetMapping Name="BuyingTickets">
-            <EntityTypeMapping TypeName="dimovBDModel.BuyingTickets">
+            <EntityTypeMapping TypeName="DBModel.BuyingTickets">
               <MappingFragment StoreEntitySet="BuyingTickets">
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
@@ -544,7 +523,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="dimovBDModel.Events">
+            <EntityTypeMapping TypeName="DBModel.Events">
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -559,9 +538,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="dimovBDModel.Items">
+            <EntityTypeMapping TypeName="DBModel.Items">
               <MappingFragment StoreEntitySet="Items">
-                <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Width" ColumnName="Width" />
@@ -570,11 +548,12 @@
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ItemsForEvents">
-            <EntityTypeMapping TypeName="dimovBDModel.ItemsForEvents">
+            <EntityTypeMapping TypeName="DBModel.ItemsForEvents">
               <MappingFragment StoreEntitySet="ItemsForEvents">
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="ItemsID" ColumnName="ItemsID" />
@@ -584,7 +563,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Organizers">
-            <EntityTypeMapping TypeName="dimovBDModel.Organizers">
+            <EntityTypeMapping TypeName="DBModel.Organizers">
               <MappingFragment StoreEntitySet="Organizers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -593,26 +572,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="dimovBDModel.Roles">
+            <EntityTypeMapping TypeName="DBModel.Roles">
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="dimovBDModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="dimovBDModel.Users">
+            <EntityTypeMapping TypeName="DBModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -624,7 +592,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WareHouse">
-            <EntityTypeMapping TypeName="dimovBDModel.WareHouse">
+            <EntityTypeMapping TypeName="DBModel.WareHouse">
               <MappingFragment StoreEntitySet="WareHouse">
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
