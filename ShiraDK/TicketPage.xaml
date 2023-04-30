@@ -27,12 +27,13 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <StackPanel Margin="35,0,35,0" Orientation="Horizontal">
+            <StackPanel Margin="25,0,25,0" Orientation="Horizontal">
                 <Button Padding="10,0,10,0" Margin="3,3,10,3" x:Name="backBtn" Click="backBtn_Click">Назад</Button>
                 <Button Padding="10,0,10,0" Margin="2" x:Name="deletBtn" Click="deletBtn_Click">Удалить</Button>
                 <Button Padding="10,0,10,0" Margin="2" x:Name="addBtn" Click="addBtn_Click">Добавить новую запись</Button>
                 <Button Padding="10,0,10,0" Margin="2" x:Name="editBtn" Click="editBtn_Click">Редактировать</Button>
-                <Button Padding="10,0,10,0" Margin="2" x:Name="otchetBtn" Click="otchetBtn_Click">Сформировать отчёт за текущий месяц</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="otchetBtn" Click="otchetBtn_Click">Сформировать отчёт за месяц</Button>
+                <Button Padding="10,0,10,0" Margin="2" x:Name="chekBtn" Click="chekBtn_Click">Сформировать чек</Button>
             </StackPanel>
             <StackPanel Margin="40,5,35,0" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center">Продавец:</TextBlock>

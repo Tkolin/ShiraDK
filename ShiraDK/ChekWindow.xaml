@@ -1,0 +1,82 @@
+﻿<Window x:Class="ShiraDK.ChekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShiraDK"
+        mc:Ignorable="d"
+        Title="Предпросмотр чека" Height="750" Width="450">
+    <Grid Background="White" x:Name="chekGrid">
+        <StackPanel Margin="15" Background="White">
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,20" HorizontalAlignment="Center">
+                <Image Height="50" Width="50" Source="Resursed/19.png"></Image>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5" FontSize="20">ШИРИНСКИЙ ДОМ КУЛЬТУРЫ</Label>
+            </StackPanel>
+
+
+
+
+            <TextBlock FontSize="28" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic">Чек покупки</TextBlock>
+
+            <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Bold" FontStyle="Italic">Информаци о мироприятии</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Мероприятие:</TextBlock>
+                <TextBlock FontSize="18" Name="tB0">----</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Организация:</TextBlock>
+                <TextBlock FontSize="18" Name="tB1">----</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Стоимость билета:</TextBlock>
+                <TextBlock FontSize="18" Name="tB2">----</TextBlock>
+                <TextBlock FontSize="18"> руб.</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Дата проведения:</TextBlock>
+                <TextBlock FontSize="18" Name="tB3">----</TextBlock>
+            </StackPanel>
+            <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Bold" FontStyle="Italic">Информаци о клиенте</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Клиент:</TextBlock>
+                <TextBlock FontSize="18" Name="tB4">----</TextBlock>
+            </StackPanel>
+
+            <TextBlock FontSize="20" HorizontalAlignment="Center"  FontWeight="Bold" FontStyle="Italic">Информаци о транзакции</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Номер транзакции:</TextBlock>
+                <TextBlock FontSize="18" Name="tB5">----</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Дата покупки:</TextBlock>
+                <TextBlock FontSize="18" Name="tB6">----</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="18">Продавец:</TextBlock>
+                <TextBlock  FontSize="18" Name="tB7">----</TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Margin="15,15,15,35">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock FontSize="18">Кол-во:</TextBlock>
+                <TextBlock FontSize="18" Name="tB8">----</TextBlock>
+                <TextBlock FontSize="18"> ед.</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock FontSize="18">Сумма:</TextBlock>
+                <TextBlock FontSize="18" Name="tB9">----</TextBlock>
+                <TextBlock FontSize="18"> руб.</TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+        <Border Background="Black" VerticalAlignment="Bottom" Margin="0,0,0,4">
+            <Line Height="5"  StrokeThickness="6" X1="2" />
+        </Border>
+        <StackPanel Orientation="Horizontal" Margin="10,690,10,0" HorizontalAlignment="Center" x:Name="NonPastPanel" Opacity="0.66">
+            <Button  FontSize="16" FontWeight="Bold" Width="200" Margin="2" x:Name="backBtn" Click="backBtn_Click">Назад</Button>
+            <Button   FontSize="16" FontWeight="Bold" Width="200" Margin="2" x:Name="createBtn" Click="createBtn_Click">Печать</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

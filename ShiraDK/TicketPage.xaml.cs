@@ -167,5 +167,44 @@ namespace ShiraDK
             app.Calculation = XlCalculation.xlCalculationAutomatic;
             ws.Calculate();
         }
+
+        private void chekBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem == null)
+                return;
+
+            BuyingTickets bTick = dataGrid.SelectedItem as BuyingTickets;
+            try
+            {
+                string n0 = bTick.Events.Name;
+                string n1 = bTick.Events.Organizers.Name;
+                string n2 = bTick.Events.Price.ToString();
+                string n3 = bTick.Events.DateStart.ToString();
+                string n4 = bTick.Users1.LastName + " " + bTick.Users1.FirstName;
+                string n5 = bTick.Number.ToString();
+                string n6 = bTick.PurchaseDate.ToString();
+                string n7 = bTick.Users.LastName + " " + bTick.Users.FirstName;
+                string n8 = bTick.Count.ToString();
+                string n9 = (bTick.Count * bTick.Events.Price).ToString();
+                ChekWindow window
+                    = new ChekWindow(   n0,
+                                        n1,
+                                        n2,
+                                        n3,
+                                        n4,
+                                        n5,
+                                        n6,
+                                        n7,
+                                        n8,
+                                        n9);
+                window.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Ошибка!");
+                MessageBox.Show("Оформите чек в ручную.","Сообщение");
+                return;
+            }
+        }
     }
 }
